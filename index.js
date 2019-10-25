@@ -21,9 +21,9 @@ $(function () {
     </div>
     </li>`);
   });
-});
+
     
-$(function () {
+
   $('.shopping-item-delete').click(event => {
     event.preventDefault()
     console.log('delete button clicked');
@@ -32,10 +32,10 @@ $(function () {
        
     const itemNotNeeded = $('#delete-me').remove();
   });
-});
+
      
         
-$(function () {
+
   $('.shopping-item').on('click', '.shopping-item-toggle', event => {
     event.preventDefault();
     console.log('check button clicked');
@@ -43,8 +43,8 @@ $(function () {
     const checkOff = $(event.currentTarget).closest('li').attr('class','check-me');//.toggleClass('shopping-item__checked');
     const checkComplete = $('.check-me').toggleClass('shopping-item__checked');
   });
+
 });
-      
         
     
      
