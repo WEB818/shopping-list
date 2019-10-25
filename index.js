@@ -6,12 +6,46 @@ $(function () {
   $('#js-shopping-list-form').submit(event => {
     event.preventDefault();
 
-    const newItemToBuy = $(event.currentTarget).append('.shopping-list');
-    //$('shopping-list').append('<li></li>')
-   
-    // 
-    // .toggleClass()
-    // $('listed item to check off').closest("li").delete
+    const newItemToBuy = $('#shopping-list-entry').val();
+    console.log(newItemToBuy);
+
+    $('ul').append(`<li>
+    <span class="shopping-item">${newItemToBuy}</span>
+    <div class="shopping-item-controls">
+      <button class="shopping-item-toggle">
+        <span class="button-label">check</span>
+      </button>
+      <button class="shopping-item-delete">
+        <span class="button-label">delete</span>
+      </button>
+    </div>
+    </li>`);
+
+  
+    $(function () {
+      $('.shopping-item-delete').click(event => {
+        event.preventDefault()
+        console.log('delete button clicked');
+        
+        const deleter = $(event.currentTarget).closest('li').attr('id','delete-me');
+       
+        const itemNotNeeded = $('#delete-me').remove();
+        
+
+     
+        
+        $(function () {
+          $('.shopping-item-toggle').on('click', event => {
+            event.preventDefault();
+            console.log('check button clicked');
+            
+            const checkOff = $(event.currentTarget).closest('li').attr('class','check-me');//.toggleClass('shopping-item__checked');
+            const checkComplete = $('.check-me').toggleClass('shopping-item__checked');
+          });
+        });
+        //$('listed item to check off').closest("li").delete
     
+      });
+    });
   });
 });
