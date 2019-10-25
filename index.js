@@ -20,32 +20,31 @@ $(function () {
       </button>
     </div>
     </li>`);
-
-  
-    $(function () {
-      $('.shopping-item-delete').click(event => {
-        event.preventDefault()
-        console.log('delete button clicked');
-        
-        const deleter = $(event.currentTarget).closest('li').attr('id','delete-me');
-       
-        const itemNotNeeded = $('#delete-me').remove();
-        
-
-     
-        
-        $(function () {
-          $('.shopping-item-toggle').on('click', event => {
-            event.preventDefault();
-            console.log('check button clicked');
-            
-            const checkOff = $(event.currentTarget).closest('li').attr('class','check-me');//.toggleClass('shopping-item__checked');
-            const checkComplete = $('.check-me').toggleClass('shopping-item__checked');
-          });
-        });
-        //$('listed item to check off').closest("li").delete
-    
-      });
-    });
   });
 });
+    
+$(function () {
+  $('.shopping-item-delete').click(event => {
+    event.preventDefault()
+    console.log('delete button clicked');
+        
+    const deleter = $(event.currentTarget).closest('li').attr('id','delete-me');
+       
+    const itemNotNeeded = $('#delete-me').remove();
+  });
+});
+     
+        
+$(function () {
+  $('.shopping-item').on('click', '.shopping-item-toggle', event => {
+    event.preventDefault();
+    console.log('check button clicked');
+            
+    const checkOff = $(event.currentTarget).closest('li').attr('class','check-me');//.toggleClass('shopping-item__checked');
+    const checkComplete = $('.check-me').toggleClass('shopping-item__checked');
+  });
+});
+      
+        
+    
+     
